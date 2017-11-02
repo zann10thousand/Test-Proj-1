@@ -38,14 +38,17 @@ public class Controlls : MonoBehaviour {
     // Collision Event
     void IsColliding (Collision2D col)
     {
+        /*
         grounded = true;
         if (col.gameObject.name == "Floor")
         {
             grounded = true;
         }
+        */
         /*
         if (col.gameObject.name == "Coin")
         {
+            gameController.AddScore(1);
         }
         */
     }
@@ -62,39 +65,34 @@ public class Controlls : MonoBehaviour {
         if (movement.velocity.y < vMin)
             movement.velocity = new Vector2(movement.velocity.x, vMin);
 
-<<<<<<< HEAD
         // Grounding
-        if (movement.velocity.y == 0 && !grounded)
+        if (movement.velocity.y == 0)
             grounded = true;
-=======
-        //reset grounded condition
-        if (grounded == false && movement.velocity.y == 0)
+        else
+            grounded = false;
+
+
+        // Comtrols
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
         {
-            grounded = true;
-        }
-
-        // Controls
->>>>>>> 9cf921d91fbf182cfd56709d5c9e789c6a1cd865
-
-        // Controls
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) {
             if (grounded == true)
             {
                 grounded = false;
                 movement.velocity = new Vector2(movement.velocity.x, 10);
             }
         }
-        
-        if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) {
-            movement.velocity = new Vector2(0, -15);
+
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
+            if (grounded)
+                movement.velocity = new Vector2(0, 0);
+            else
+                movement.velocity = new Vector2(movement.velocity.x, -20);
         }
         
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) && movement.velocity.y == 0)
+        if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && grounded == true)
             movement.velocity = new Vector2(movement.velocity.x + 1, movement.velocity.y);
 
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) && movement.velocity.y == 0)
+        if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && grounded == true)
             movement.velocity = new Vector2(movement.velocity.x - 1, movement.velocity.y);
 
     }
