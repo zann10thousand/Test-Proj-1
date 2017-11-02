@@ -40,13 +40,19 @@ public class Controlls : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (hMove > hMax)
-            hMove = hMax;
-        if (vMove < vMin)
-            vMove = vMin;
+        // Speed Caps
+        if (movement.velocity.x > hMax)
+            movement.velocity = new Vector2(hMax, movement.velocity.y);
+        if (movement.velocity.x < -hMax)
+            movement.velocity = new Vector2(-hMax, movement.velocity.y);
+        if (movement.velocity.y < vMin)
+            movement.velocity = new Vector2(movement.velocity.x, vMin);
+
+        // Grounding
+        if (movement.velocity.y == 0 && !grounded)
+            grounded = true;
 
         // Controls
-
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) {
             if (grounded == true)
             {
