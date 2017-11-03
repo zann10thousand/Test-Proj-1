@@ -11,11 +11,6 @@ public class Controlls : MonoBehaviour {
     public float hMax = 10;
     public float vMin = -15;
 
-    //public float speed;
-
-    float hMove;
-    float vMove;
-
     private Rigidbody2D movement;
 
 
@@ -94,6 +89,11 @@ public class Controlls : MonoBehaviour {
 
         if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && grounded == true)
             movement.velocity = new Vector2(movement.velocity.x - 1, movement.velocity.y);
+
+        if (Input.GetKeyDown(KeyCode.R)) {
+            transform.position = new Vector2(0, 0);
+            movement.velocity = new Vector2(0, 0);
+        }
 
     }
 }
