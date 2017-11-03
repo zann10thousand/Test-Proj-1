@@ -8,16 +8,17 @@ public class GameController : MonoBehaviour {
     public int score;
 
 
-
 	// Use this for initialization
 	void Start () {
         score = 0;
         UpdateScore();
         scoreText.text = "Score: 0";
+
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
     public void AddScore(int newScoreValue)

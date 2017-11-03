@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Controlls : MonoBehaviour {
 
+
     public bool grounded = true;
     public GameController gameController;
     public int ScoreValue = 1;
@@ -20,6 +21,8 @@ public class Controlls : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
+
         // Allows the object to be moved
         movement = GetComponent<Rigidbody2D>();
         //Finds an instance of GameController to bind the coin object to; should be moved to the coin's own script at a later date
