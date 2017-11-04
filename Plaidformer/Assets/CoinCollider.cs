@@ -12,12 +12,12 @@ public class CoinCollider : MonoBehaviour {
     public int count;
 
     // Use this for initialization
-    void Start () {
+  /*  void Start () {
         count = 5;
         SetCountText();
 
     }
-    void OnTriggerEnter2D(Collider2D col)
+    /*void OnTriggerEnter2D(Collider2D col)
     {
 
         if (col.gameObject.name == "Coin")
@@ -26,15 +26,16 @@ public class CoinCollider : MonoBehaviour {
             count = count + 10;
             SetCountText();
         }
-    }
-    void SetCountText()
+    }*/
+    /*void SetCountText()
     {
         countText.text = "Score: " + count.ToString();
-    }
+    }*/
 
 
     // Update is called once per frame
     void Update () {
 		
 	}
+    
 }
