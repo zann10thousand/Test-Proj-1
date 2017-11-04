@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Controlls : MonoBehaviour {
+    public GameController gameController;
+    public int score;
 
     public bool grounded = true;
-    public GameController gameController;
     public int ScoreValue = 1;
     public int jumpMax = 1;
     public float accel = 1.0F;
@@ -16,6 +18,8 @@ public class Controlls : MonoBehaviour {
 
     private Rigidbody2D movement;
     private int jumpCount = 0;
+    public Text countText;
+    public int count;
 
 
     // Use this for initialization
@@ -23,28 +27,35 @@ public class Controlls : MonoBehaviour {
         // Allows the object to be moved
         movement = GetComponent<Rigidbody2D>();
         //Finds an instance of GameController to bind the coin object to; should be moved to the coin's own script at a later date
-        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
-        if(gameControllerObject != null)
+        GameObject gameControllerObject = GameObject.FindWithTag("ScoreText");
+        if (gameControllerObject != null)
         {
             gameController = gameControllerObject.GetComponent<GameController>();
         }
-        if(gameControllerObject == null)
+        if (gameControllerObject == null)
         {
             Debug.Log("Cannot find 'GameController' script");
         }
+
+         count = 5;
+        SetCountText();
     }
 
-    // Collision Event
-    void IsColliding (Collision2D col)
+
+    void OnTriggerEnter2D(Collider2D col)
     {
-        /*
+
         if (col.gameObject.name == "Coin")
         {
-            gameController.AddScore(1);
+            Destroy(col.gameObject);
+            count = count + 10;
+            SetCountText();
         }
-        */
     }
-
+    void SetCountText()
+    {
+        countText.text = "Score: " + count.ToString();
+    }
 
     // Update is called once per frame
     void Update() {
