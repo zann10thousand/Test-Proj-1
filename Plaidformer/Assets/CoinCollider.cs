@@ -14,7 +14,7 @@ public class CoinCollider : MonoBehaviour {
     // Use this for initialization
     void Start () {
         count = 5;
-        SetCountText();
+        //SetCountText();
 
     }
     /*void OnTriggerEnter2D(Collider2D col)
