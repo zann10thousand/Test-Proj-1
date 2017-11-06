@@ -961,6 +961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Floor: {fileID: 2018087882}
+  Coin: {fileID: 50921139}
 --- !u!114 &1961516987
 MonoBehaviour:
   m_ObjectHideFlags: 0
