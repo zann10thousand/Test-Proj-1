@@ -39,12 +39,18 @@ public class Controlls : MonoBehaviour {
         }
 
          count = 5;
-        SetCountText();
+        //SetCountText();
     }
 
 
-    void OnTriggerEnter2D(Collider2D col)
+    /*void OnTriggerEnter2D(Collider2D col)
     {
+        if (col.gameObject.name == "Coin(Clone)")
+        {
+            Destroy(col.gameObject);
+            count = count + 10;
+            SetCountText();
+        }
 
         if (col.gameObject.name == "Coin")
         {
@@ -53,10 +59,10 @@ public class Controlls : MonoBehaviour {
             SetCountText();
         }
     }
-    void SetCountText()
+    public void SetCountText()
     {
         countText.text = "Score: " + count.ToString();
-    }
+    }*/
 
     // Update is called once per frame
     void Update() {
