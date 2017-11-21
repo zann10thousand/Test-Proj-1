@@ -20,6 +20,7 @@ public class Controlls : MonoBehaviour {
     private int jumpCount = 0;
     public Text countText;
     public int count;
+    public float hspeedLast = 0;
 
 
     // Use this for initialization
@@ -72,8 +73,8 @@ public class Controlls : MonoBehaviour {
         if (movement.velocity.y == 0)
         {
             grounded = true;
-            if (jumpCount < jumpMax)
-                jumpCount = jumpMax;
+            if (hspeedLast <= 0 && jumpCount < jumpMax)
+                jumpCount += 1;
         }
 
         else
@@ -122,6 +123,8 @@ public class Controlls : MonoBehaviour {
             transform.position = new Vector2(0, 0);
             movement.velocity = new Vector2(0, 0);
         }
+
+        hspeedLast = movement.velocity.y;
 
     }
 }
